@@ -10,7 +10,17 @@ const list = document.querySelector('.js-list')
 const markup = galleryItems.reduce((acc, url)=> acc + `<li><img src="${url.preview}" alt="cat" loading="lazy" width="300"></li>`,'')
 list.insertAdjacentHTML("beforeend", markup)
 
+const instance = basicLightbox.create(`
+    
+        
+        <img src="${url.preview}" alt="cat" loading="lazy" width="300">
+      
+    
+`)
 
+instance.show()
+
+console.log (basicLightbox);
 
 //for ()
 /*
