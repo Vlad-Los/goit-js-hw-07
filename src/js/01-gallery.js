@@ -7,7 +7,7 @@ import { galleryItems } from './gallery-items.js';
 // используем массив 
 const list = document.querySelector('.js-list')
 
-const markup = galleryItems.reduce((acc, url)=> acc + `<li><img src="${url}" alt="cat" loading="lazy" width="300"></li>`,'')
+const markup = galleryItems.reduce((acc, url)=> acc + `<li><img src="${url.preview}" alt="cat" loading="lazy" width="300"></li>`,'')
 list.insertAdjacentHTML("beforeend", markup)
 
 
