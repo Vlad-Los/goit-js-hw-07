@@ -7,20 +7,24 @@ import { galleryItems } from './gallery-items.js';
 // используем массив 
 const list = document.querySelector('.js-list')
 
-const markup = galleryItems.reduce((acc, url)=> acc + `<li><img src="${url.preview}" alt="cat" loading="lazy" width="300"></li>`,'')
+const markup = galleryItems.reduce(
+  (acc, url)=> acc + 
+    `<li>
+      <img src="${url.preview}" alt="${url.description}"
+      class="gallery__image" data-source="${url.original}" loading="lazy">
+    </li>`,'')
 list.insertAdjacentHTML("beforeend", markup)
 
-const instance = basicLightbox.create(`
-    
-        
-        <img src="${url.preview}" alt="cat" loading="lazy" width="300">
-      
-    
-`)
+let arr=document.querySelectorAll('.gallery__image');
+for (let i=0; i<arr.length; ++i)
+{
+  arr[i].onclick=function(e) {
+    basicLightbox.create('<img width="1400" height="900" class="gallery__item" src="'+e.target.dataset.source+'">')
+    .show();
+  }
+}
 
-instance.show()
-
-console.log (basicLightbox);
+//console.log(basicLightbox);
 
 //for ()
 /*
